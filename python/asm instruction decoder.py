@@ -100,8 +100,8 @@ def op3(code):
 if __name__ == "__main__":
   myInput = ""
   while 1:
-    myInput = input("Enter Binary Code:\n")
-    if myInput.strip().lower() == "stop":
+    myInput = input("Enter Binary Code:\n").lower().replace(" ", "")
+    if myInput == "stop":
       break
     if not chooser(myInput):
       print("Length error, please try again.")
