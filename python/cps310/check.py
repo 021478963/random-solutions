@@ -1,20 +1,29 @@
 '''
-  Takes in two filenames to a txt file and a bin file and compares them
+  Takes in two filenames to two txt/bin files and compares them.
+  Stops at the end of the smaller file
 '''
 
 from asm_instruction_decoder import chooser
 
-def check(textFile, binFile):
-  textInstructions = getTextFile(textFile)
-  binInstructions = getBinFile(binFile)
+def check():
+  input1 = input("file 1 name:\n")
+  if input1[-4:] == ".bin":
+    instructions1 = getBinFile(input1)
+  else:
+    instructions1 = getTextFile(input1)
+  input2 = input("file 2 name:\n")
+  if input2[-4:] == ".bin":
+    instructions2 = getBinFile(input2)
+  else:
+    instructions2 = getTextFile(input2)
 
-  smallest = len(textInstructions) if textInstructions < binInstructions else len(binInstructions)
+  smallest = len(instructions1) if instructions1 < instructions2 else len(instructions2)
 
   for i in range(smallest):
     print("file:")
-    x = chooser(textInstructions[i])
+    x = chooser(instructions1[i])
     print("bin: ")
-    y = chooser(binInstructions[i])
+    y = chooser(instructions2[i])
     assert x == y
     print("ok\n\n")
 
@@ -35,8 +44,5 @@ def getBinFile(fileName):
         result.append(line[9:17])
   return result
 
-textPath = input("text name\n")
-binPath = input("bin name\n")
-print()
-check(textPath, binPath)
-input("Press Enter to continue...")
+if __name__ == "__main__":
+  check()
