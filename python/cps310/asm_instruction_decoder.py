@@ -1,3 +1,7 @@
+'''
+  Takes in an ARC assembly line and converts it to binary code
+'''
+
 from operations import binaryToDecimal
 from operations import fixWidth
 from operations import hexToBinary

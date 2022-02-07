@@ -1,3 +1,7 @@
+'''
+  Takes in user input to create ARC binary code
+'''
+
 from operations import decimalToBinary
 # from operations import binaryToHex
 

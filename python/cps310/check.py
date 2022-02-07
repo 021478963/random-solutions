@@ -1,3 +1,7 @@
+'''
+  Takes in two filenames to a txt file and a bin file and compares them
+'''
+
 from asm_instruction_decoder import chooser
 
 def check(textFile, binFile):
