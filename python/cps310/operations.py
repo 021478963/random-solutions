@@ -30,7 +30,7 @@ def twosCompHelper(binary, result, depth):
     result += '1'
     result
 
-def binaryToDecimal(binaryInput, mode = 0, length = 32):
+def binaryToDecimal(binaryInput, mode = 0, length = 32): # mode 1 is positive
   total = 0
   if mode == 1:
     binaryInput = "0" + binaryInput
@@ -63,7 +63,8 @@ def hexToBinary(hexInput):
   return result
 
 def hexToDecimal(hexInput):
-  return binaryToDecimal(hexToBinary(hexInput))
+  return binaryToDecimal(hexToBinary(hexInput), 1)
+
 if __name__ == "__main__":
   #print(twosComp("101010"))
   
