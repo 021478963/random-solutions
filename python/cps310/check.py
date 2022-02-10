@@ -25,13 +25,15 @@ def check():
   smallest = len(instructions1) if instructions1 < instructions2 else len(instructions2)
 
   for i in range(smallest):
-    print("line " + str(i + 1))
     print(file1)
     x = chooser(instructions1[i])
     print(file2)
     y = chooser(instructions2[i])
-    assert x == y
-    print("ok\n\n")
+    try:
+      assert x == y
+      print("line " + str(i + 1) + " ok\n\n")
+    except:
+      print("\t\t\t\t\t\t\tERROR ON LINE " + str(i + 1) + "\n\n") # to really stand out lol
 
 def getTextFile(fileName):
   result = []
