@@ -74,7 +74,7 @@ def type3(myInput):
     resultWords += " i          " + fixWidth("r: " + str(binaryToDecimal(myInput[27:], 3)), 5)
   elif i == "1":
     resultCode += " 1 " + myInput[19:]
-    resultWords += " i simm13: " + fixWidth(str(binaryToDecimal(myInput[19:], 1)), 5)
+    resultWords += " i simm13: " + fixWidth(str(binaryToDecimal(myInput[19:], 0)), 5)
   else:
     return False
   print(resultCode)
