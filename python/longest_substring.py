@@ -1,18 +1,18 @@
 def longest_substring(s):
-  if len(s) == 0:
-    return 0
-  else:
-    used_letters = set()
-    for letter in s:
-      if letter in used_letters:
-        substrings = s.split(letter)
-        max = 1
-        for i in substrings:
-          result = longest_substring(i) + 1
-          if result > max:
-            max = result
-        return max
-      used_letters.add(letter)
-    return len(s)
+  used_letters = set()
+  start = 0
+  longest = 0
+  for i, letter in enumerate(s):
+    if letter in used_letters:
+      if i - start > longest:
+        longest = i - start
+      used_letters = set()
+      start = i
+    used_letters.add(letter)
 
-print(longest_substring("abcb"))
+  last = len(s) - start
+  if last > longest:
+    return last
+  return longest
+
+print(longest_substring("dvdf"))
